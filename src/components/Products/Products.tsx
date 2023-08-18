@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 
+import { ProductList } from "./ProductList/ProductList";
+
 import { productsApi } from "src/services/api";
+
+import { StyledSection } from "./Products.styled";
 
 import { Product } from "src/modules/IProducts";
 
@@ -28,12 +32,12 @@ export const Products: React.FC = () => {
   }, []);
 
   return (
-    <section>
+    <StyledSection>
       {status === "pending" && <p>Loading...</p>}
 
       {status === "fulfilled" && <ProductList items={products} />}
 
       {status === "rejected" && <p>{error}</p>}
-    </section>
+    </StyledSection>
   );
 };
