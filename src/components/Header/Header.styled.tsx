@@ -13,11 +13,6 @@ export const HeaderStyled = styled.header`
   background-color: #58468f62;
 `;
 
-export const LogoWrapper = styled.div`
-  /* width: 24px;
-  height: 24px; */
-`;
-
 export const CartWrapper = styled.div`
   display: flex;
   justify-content: center;

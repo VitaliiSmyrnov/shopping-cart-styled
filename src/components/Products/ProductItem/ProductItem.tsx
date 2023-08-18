@@ -1,5 +1,25 @@
 import React from "react";
 
-export const ProductItem: React.FC = ({ item }) => {
-  return <li></li>;
+import { StyledItem, ImageWrapper } from "./ProductItem.styled";
+
+import { Product } from "src/modules/IProducts";
+
+interface IProps {
+  item: Product;
+}
+
+export const ProductItem: React.FC<IProps> = ({ item }) => {
+  const { thumbnail, title, price } = item;
+
+  return (
+    <StyledItem>
+      <ImageWrapper>
+        <img src={thumbnail} alt="Product image" />
+      </ImageWrapper>
+
+      <h3>{title}</h3>
+      <p>Price: {price}</p>
+      <button type="button">Add to Cart</button>
+    </StyledItem>
+  );
 };
