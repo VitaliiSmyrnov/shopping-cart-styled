@@ -3,9 +3,11 @@ import { Outlet } from "react-router-dom";
 
 import { Header, Footer } from "src/components";
 
+import { Container } from "./SharedLayout.styled";
+
 export const SharedLayout: React.FC = () => {
   return (
-    <>
+    <Container>
       <Header />
 
       <main>
@@ -15,6 +17,6 @@ export const SharedLayout: React.FC = () => {
       </main>
 
       <Footer />
-    </>
+    </Container>
   );
 };

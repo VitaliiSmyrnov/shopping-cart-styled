@@ -12,10 +12,10 @@ export const App: React.FC = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={SharedLayout}>
-          <Route index element={HomePage} />
-          <Route path="cart" element={CartPage} />
-          <Route path="*" element={NotFound} />
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="cart" element={<CartPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>
