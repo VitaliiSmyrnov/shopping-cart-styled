@@ -11,7 +11,7 @@ export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
 
-    gap: 15px;
+    gap: 20px;
 
     margin-left: auto;
     margin-right: auto;
