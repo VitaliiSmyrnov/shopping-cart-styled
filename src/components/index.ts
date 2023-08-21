@@ -3,3 +3,4 @@ export * from "./NotFound/NotFound";
 export * from "./Header/Header";
 export * from "./Footer/Footer";
 export * from "./Products/Products";
+export * from "./CurrencyFormatter/CurrencyFormatter";
