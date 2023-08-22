@@ -11,7 +11,7 @@ export const SharedLayout: React.FC = () => {
       <Header />
 
       <main>
-        <Suspense fallback={null}>
+        <Suspense fallback={<p>Loading...</p>}>
           <Outlet />
         </Suspense>
       </main>
