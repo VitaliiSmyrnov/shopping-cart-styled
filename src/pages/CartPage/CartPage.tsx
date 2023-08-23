@@ -1,7 +1,9 @@
 import React from "react";
 
+import { Cart } from "src/components";
+
 const CartPage: React.FC = () => {
-  return <div>CartPage</div>;
+  return <Cart />;
 };
 
 export default CartPage;
