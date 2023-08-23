@@ -27,6 +27,12 @@ export const StyledItem = styled.li`
     border-radius: 16px;
 
     background-color: yellow;
+
+    &:disabled {
+      opacity: 0.5;
+      background-color: lightgray;
+      cursor: auto;
+    }
   }
 `;
 
