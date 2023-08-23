@@ -1,5 +1,5 @@
 export type Product = {
-  id: string;
+  id: number;
   title: string;
   price: number;
   thumbnail: string;
@@ -10,3 +10,5 @@ export type Product = {
 export interface CartProps {
   [productId: string]: Product;
 }
+
+export type Operation = "decrease" | "increase";

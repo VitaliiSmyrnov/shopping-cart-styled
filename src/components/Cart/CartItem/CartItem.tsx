@@ -5,16 +5,25 @@ import { CurrencyFormatter } from "src/components";
 
 import trash from "src/assets/svg/trash.svg";
 
-import { StyledItem, ImageWrapper, StyledTrash } from "./CartItem.styled";
+import {
+  StyledItem,
+  ImageWrapper,
+  StyledTrash,
+  StyledPrice,
+} from "./CartItem.styled";
 
-import { Product } from "src/modules/IProducts";
+import { Product, Operation } from "src/modules/IProducts";
 
 type IProps = {
   item: Product;
+  remove: () => void;
+  update: (productId: number, operation: Operation) => void;
 };
 
-export const CartItem: React.FC<IProps> = ({ item }) => {
-  const { thumbnail, title, price } = item;
+export const CartItem: React.FC<IProps> = ({ item, remove, update }) => {
+  const { id, thumbnail, title, price } = item;
+
+  console.log("type", typeof id);
 
   return (
     <StyledItem>
@@ -24,15 +33,15 @@ export const CartItem: React.FC<IProps> = ({ item }) => {
 
       <h3>{title}</h3>
 
-      <Quantifier />
+      <Quantifier remove={remove} productId={id} updateQuantity={update} />
 
-      <StyledTrash>
+      <StyledTrash onClick={remove}>
         <img src={trash} alt="Trash can" />
       </StyledTrash>
 
-      <span>
+      <StyledPrice>
         <CurrencyFormatter amount={price} />
-      </span>
+      </StyledPrice>
     </StyledItem>
   );
 };

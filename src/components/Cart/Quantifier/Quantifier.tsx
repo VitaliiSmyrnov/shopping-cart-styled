@@ -2,18 +2,44 @@ import React, { useState } from "react";
 
 import { Container } from "./Quantifier.styled";
 
-export const Quantifier: React.FC = () => {
+import { Operation } from "src/modules/IProducts";
+
+type IProps = {
+  productId: number;
+  remove: () => void;
+  updateQuantity: (productId: number, operation: Operation) => void;
+};
+
+export const Quantifier: React.FC<IProps> = ({
+  productId,
+  remove,
+  updateQuantity,
+}) => {
   const [value, setValue] = useState(1);
 
-  const decrease = () => setValue((prev) => prev - 1);
+  const decrease = () => {
+    updateQuantity(productId, "decrease");
 
-  const increase = () => setValue((prev) => prev + 1);
+    setValue((prev) => {
+      const updatedValue = prev - 1;
+
+      if (updatedValue === 0) {
+        remove();
+      }
+
+      return updatedValue;
+    });
+  };
+
+  const increase = () => {
+    updateQuantity(productId, "increase");
+    setValue((prev) => prev + 1);
+  };
 
   return (
     <Container>
       <input type="button" value="-" onClick={decrease} />
       <span>{value}</span>
-      {/* <input type="number" step="1" min="0" max="10" value={value} /> */}
       <input type="button" value="+" onClick={increase} />
     </Container>
   );
