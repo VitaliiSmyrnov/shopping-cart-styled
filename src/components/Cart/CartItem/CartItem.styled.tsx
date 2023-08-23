@@ -16,11 +16,20 @@ export const StyledItem = styled.li`
 `;
 
 export const ImageWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
   width: 100px;
+  height: 100px;
 `;
 
-export const StyledTrash = styled.div`
+export const StyledTrash = styled.button`
   img {
     cursor: pointer;
   }
+`;
+
+export const StyledPrice = styled.div`
+  min-width: 75px;
+  text-align: right;
 `;
