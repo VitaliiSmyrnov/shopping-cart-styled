@@ -1,10 +1,11 @@
 import React from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 import { CurrencyFormatter } from "src/components";
 
 import { StyledItem, ImageWrapper } from "./ProductItem.styled";
 
-import { Product } from "src/modules/IProducts";
+import { Product, CartProps } from "src/modules/IProducts";
 
 interface IProps {
   item: Product;
@@ -12,6 +13,20 @@ interface IProps {
 
 export const ProductItem: React.FC<IProps> = ({ item }) => {
   const { thumbnail, title, price } = item;
+
+  const [cart, setCart] = useLocalStorageState<CartProps>("cart");
+
+  const addToCart = (): void => {
+    item.quantity = 1;
+
+    setCart((prevCart) => ({
+      ...prevCart,
+      [item.id]: item,
+    }));
+  };
+
+  const isInCart = (): boolean =>
+    Object.keys(cart || {}).includes(item.id.toString());
 
   return (
     <StyledItem>
@@ -23,7 +38,9 @@ export const ProductItem: React.FC<IProps> = ({ item }) => {
       <p>
         Price: <CurrencyFormatter amount={price} />
       </p>
-      <button type="button">Add to Cart</button>
+      <button type="button" onClick={addToCart} disabled={isInCart()}>
+        Add to Cart
+      </button>
     </StyledItem>
   );
 };
