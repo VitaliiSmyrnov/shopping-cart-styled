@@ -23,8 +23,6 @@ type IProps = {
 export const CartItem: React.FC<IProps> = ({ item, remove, update }) => {
   const { id, thumbnail, title, price } = item;
 
-  console.log("type", typeof id);
-
   return (
     <StyledItem>
       <ImageWrapper>

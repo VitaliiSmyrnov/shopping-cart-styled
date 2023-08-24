@@ -5,3 +5,4 @@ export * from "./Footer/Footer";
 export * from "./Products/Products";
 export * from "./CurrencyFormatter/CurrencyFormatter";
 export * from "./Cart/Cart";
+export * from "./Loader/Loader";
