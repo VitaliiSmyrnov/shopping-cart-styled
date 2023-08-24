@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { ProductList } from "./ProductList/ProductList";
+import { Loader } from "src/components";
 
 import { productsApi } from "src/services/api";
 
@@ -33,7 +34,7 @@ export const Products: React.FC = () => {
 
   return (
     <StyledSection>
-      {status === "pending" && <p>Loading...</p>}
+      {status === "pending" && <Loader />}
 
       {status === "fulfilled" && <ProductList items={products} />}
 

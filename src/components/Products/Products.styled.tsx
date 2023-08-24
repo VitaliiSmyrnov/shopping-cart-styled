@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledSection = styled.section`
-padding-top: 20px;
-padding-bottom: 20px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
 `;
