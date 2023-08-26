@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useLocalStorageState from "use-local-storage-state";
 
-import { HeaderStyled, CartWrapper } from "./Header.styled";
+import { StyledHeader, CartWrapper } from "./Header.styled";
 
 import logo from "src/assets/svg/shopping-bags.svg";
 import shoppingCart from "src/assets/svg/shopping-cart.svg";
@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
   const productsCount: number = Object.keys(cart || {}).length;
 
   return (
-    <HeaderStyled>
+    <StyledHeader>
       <Link to="/">
         <img src={logo} alt="Logo" />
       </Link>
@@ -26,6 +26,6 @@ export const Header: React.FC = () => {
           <span>{productsCount}</span>
         </CartWrapper>
       </Link>
-    </HeaderStyled>
+    </StyledHeader>
   );
 };
